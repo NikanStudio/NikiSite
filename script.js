@@ -12,7 +12,7 @@ let topics = JSON.parse(localStorage.getItem("nikiTopics")) || [
         id: 1,
         title: "به نیکی سایت خوش آمدید 💜",
         text: "این اولین تاپیک نیکی سایته! نظرتون درباره سایت چیه؟",
-        author: "نیکی",
+        author: "nikan studio",
         category: "عمومی",
         likes: 5,
         comments: [
@@ -28,7 +28,7 @@ let topics = JSON.parse(localStorage.getItem("nikiTopics")) || [
         id: 2,
         title: "بهترین بازی که تا حالا بازی کردید؟ 🎮",
         text: "بیاید درباره بازی مورد علاقه‌مون صحبت کنیم!",
-        author: "نیکی",
+        author: "nikan studio",
         category: "گیم",
         likes: 12,
         comments: [],
