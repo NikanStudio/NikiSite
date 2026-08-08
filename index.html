@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>نیکی سایت</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- هدر -->
+    <header class="header">
+
+        <div class="logo">
+            💜 نیکی سایت
+        </div>
+
+        <button class="new-topic-btn" onclick="openTopicModal()">
+            + تاپیک جدید
+        </button>
+
+    </header>
+
+
+    <!-- بخش معرفی -->
+    <section class="hero">
+
+        <h1>به نیکی سایت خوش آمدید 💜</h1>
+
+        <p>
+            اینجا می‌تونی تاپیک بسازی، نظر بدی و با بقیه گفتگو کنی.
+        </p>
+
+    </section>
+
+
+    <!-- جستجو -->
+    <section class="search-box">
+
+        <input
+            type="text"
+            id="searchInput"
+            placeholder="🔎 جستجوی تاپیک..."
+            oninput="searchTopics()"
+        >
+
+    </section>
+
+
+    <!-- دسته بندی -->
+    <nav class="categories">
+
+        <button class="category active" onclick="filterCategory('همه', this)">
+            همه
+        </button>
+
+        <button class="category" onclick="filterCategory('عمومی', this)">
+            عمومی
+        </button>
+
+        <button class="category" onclick="filterCategory('گیم', this)">
+            🎮 گیم
+        </button>
+
+        <button class="category" onclick="filterCategory('سرگرمی', this)">
+            😂 سرگرمی
+        </button>
+
+        <button class="category" onclick="filterCategory('تکنولوژی', this)">
+            💻 تکنولوژی
+        </button>
+
+    </nav>
+
+
+    <!-- لیست تاپیک ها -->
+    <main id="topicsContainer" class="topics-container"></main>
+
+
+    <!-- اگر تاپیکی وجود نداشت -->
+    <div id="emptyMessage" class="empty-message">
+
+        <div>📭</div>
+
+        <h3>هنوز تاپیکی وجود ندارد</h3>
+
+        <p>اولین تاپیک را تو بساز!</p>
+
+    </div>
+
+
+    <!-- پنجره ساخت تاپیک -->
+    <div id="topicModal" class="modal">
+
+        <div class="modal-content">
+
+            <button class="close" onclick="closeTopicModal()">×</button>
+
+            <h2>ساخت تاپیک جدید ✨</h2>
+
+            <input
+                id="topicTitle"
+                type="text"
+                placeholder="عنوان تاپیک"
+                maxlength="100"
+            >
+
+            <select id="topicCategory">
+
+                <option value="عمومی">عمومی</option>
+                <option value="گیم">🎮 گیم</option>
+                <option value="سرگرمی">😂 سرگرمی</option>
+                <option value="تکنولوژی">💻 تکنولوژی</option>
+
+            </select>
+
+            <textarea
+                id="topicText"
+                placeholder="متن تاپیک را بنویس..."
+                maxlength="1000"
+            ></textarea>
+
+            <input
+                id="topicAuthor"
+                type="text"
+                placeholder="نام شما"
+                maxlength="30"
+            >
+
+            <button class="create-btn" onclick="createTopic()">
+                ساخت تاپیک
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- پنجره نمایش تاپیک -->
+    <div id="viewModal" class="modal">
+
+        <div class="modal-content topic-view">
+
+            <button class="close" onclick="closeViewModal()">×</button>
+
+            <div id="topicDetails"></div>
+
+        </div>
+
+    </div>
+
+
+    <footer>
+
+        <p>
+            💜 نیکی سایت
+        </p>
+
+        <small>
+            ساخته شده برای جامعه نیکی
+        </small>
+
+    </footer>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>
