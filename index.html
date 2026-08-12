@@ -4,169 +4,195 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>نیکی سایت</title>
+    <title>NikiSite | نیکی سایت</title>
 
-    <link rel="stylesheet" href="style.css">
+    <meta name="description"
+          content="به NikiSite خوش آمدید؛ یک سایت سرگرم‌کننده و جذاب.">
+
+    <meta name="keywords"
+          content="NikiSite, Niki Site, نیکی سایت">
+
+    <meta name="author" content="NikiSite">
+
+    <meta name="robots" content="index, follow">
+
+    <link rel="canonical"
+          href="https://nikanstudio.github.io/NikiSite/">
+
+    <!-- Open Graph -->
+    <meta property="og:title"
+          content="NikiSite | نیکی سایت">
+
+    <meta property="og:description"
+          content="به NikiSite خوش آمدید؛ یک سایت سرگرم‌کننده و جذاب.">
+
+    <meta property="og:url"
+          content="https://nikanstudio.github.io/NikiSite/">
+
+    <meta property="og:type"
+          content="website">
+
+    <link rel="sitemap"
+          type="application/xml"
+          href="https://nikanstudio.github.io/NikiSite/sitemap.xml">
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Tahoma, Arial, sans-serif;
+            background: #f4f9ff;
+            color: #222;
+            line-height: 1.8;
+        }
+
+        header {
+            background: #2196f3;
+            color: white;
+            padding: 30px 15px;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 34px;
+            margin-bottom: 5px;
+        }
+
+        header p {
+            font-size: 16px;
+        }
+
+        nav {
+            background: white;
+            padding: 12px;
+            text-align: center;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+
+        nav a {
+            display: inline-block;
+            margin: 5px 12px;
+            color: #1976d2;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            color: #0d47a1;
+        }
+
+        main {
+            max-width: 900px;
+            margin: 30px auto;
+            padding: 0 15px;
+        }
+
+        section {
+            background: white;
+            padding: 25px;
+            margin-bottom: 25px;
+            border-radius: 15px;
+            box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+        }
+
+        section h2 {
+            color: #1976d2;
+            margin-bottom: 12px;
+        }
+
+        .game {
+            text-align: center;
+        }
+
+        .game button {
+            border: none;
+            background: #2196f3;
+            color: white;
+            padding: 12px 22px;
+            border-radius: 10px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 15px;
+        }
+
+        .game button:hover {
+            background: #1976d2;
+        }
+
+        #score {
+            margin-top: 15px;
+            font-weight: bold;
+        }
+
+        footer {
+            text-align: center;
+            background: #1976d2;
+            color: white;
+            padding: 20px;
+            margin-top: 30px;
+        }
+    </style>
 </head>
 
 <body>
 
-    <!-- هدر -->
-    <header class="header">
+<header>
+    <h1>NikiSite</h1>
+    <p>به نیکی سایت خوش آمدید 🌐</p>
+</header>
 
-        <div class="logo">
-            💜 نیکی سایت
-        </div>
+<nav>
+    <a href="#about">درباره NikiSite</a>
+    <a href="#game">بازی</a>
+</nav>
 
-        <button class="new-topic-btn" onclick="openTopicModal()">
-            + تاپیک جدید
-        </button>
+<main>
 
-    </header>
-
-
-    <!-- بخش معرفی -->
-    <section class="hero">
-
-        <h1>به نیکی سایت خوش آمدید 💜</h1>
+    <section id="about">
+        <h2>درباره NikiSite</h2>
 
         <p>
-            اینجا می‌تونی تاپیک بسازی، نظر بدی و با بقیه گفتگو کنی.
+            به NikiSite خوش آمدید!
+            این سایت برای سرگرمی و ارائه بخش‌های مختلف ساخته شده است.
         </p>
-
     </section>
 
-
-    <!-- جستجو -->
-    <section class="search-box">
-
-        <input
-            type="text"
-            id="searchInput"
-            placeholder="🔎 جستجوی تاپیک..."
-            oninput="searchTopics()"
-        >
-
-    </section>
-
-
-    <!-- دسته بندی -->
-    <nav class="categories">
-
-        <button class="category active" onclick="filterCategory('همه', this)">
-            همه
-        </button>
-
-        <button class="category" onclick="filterCategory('عمومی', this)">
-            عمومی
-        </button>
-
-        <button class="category" onclick="filterCategory('گیم', this)">
-            🎮 گیم
-        </button>
-
-        <button class="category" onclick="filterCategory('سرگرمی', this)">
-            😂 سرگرمی
-        </button>
-
-        <button class="category" onclick="filterCategory('تکنولوژی', this)">
-            💻 تکنولوژی
-        </button>
-
-    </nav>
-
-
-    <!-- لیست تاپیک ها -->
-    <main id="topicsContainer" class="topics-container"></main>
-
-
-    <!-- اگر تاپیکی وجود نداشت -->
-    <div id="emptyMessage" class="empty-message">
-
-        <div>📭</div>
-
-        <h3>هنوز تاپیکی وجود ندارد</h3>
-
-        <p>اولین تاپیک را تو بساز!</p>
-
-    </div>
-
-
-    <!-- پنجره ساخت تاپیک -->
-    <div id="topicModal" class="modal">
-
-        <div class="modal-content">
-
-            <button class="close" onclick="closeTopicModal()">×</button>
-
-            <h2>ساخت تاپیک جدید ✨</h2>
-
-            <input
-                id="topicTitle"
-                type="text"
-                placeholder="عنوان تاپیک"
-                maxlength="100"
-            >
-
-            <select id="topicCategory">
-
-                <option value="عمومی">عمومی</option>
-                <option value="گیم">🎮 گیم</option>
-                <option value="سرگرمی">😂 سرگرمی</option>
-                <option value="تکنولوژی">💻 تکنولوژی</option>
-
-            </select>
-
-            <textarea
-                id="topicText"
-                placeholder="متن تاپیک را بنویس..."
-                maxlength="1000"
-            ></textarea>
-
-            <input
-                id="topicAuthor"
-                type="text"
-                placeholder="نام شما"
-                maxlength="30"
-            >
-
-            <button class="create-btn" onclick="createTopic()">
-                ساخت تاپیک
-            </button>
-
-        </div>
-
-    </div>
-
-
-    <!-- پنجره نمایش تاپیک -->
-    <div id="viewModal" class="modal">
-
-        <div class="modal-content topic-view">
-
-            <button class="close" onclick="closeViewModal()">×</button>
-
-            <div id="topicDetails"></div>
-
-        </div>
-
-    </div>
-
-
-    <footer>
+    <section id="game" class="game">
+        <h2>🎮 بازی ساده</h2>
 
         <p>
-            💜 نیکی سایت
+            روی دکمه کلیک کن و امتیاز بگیر!
         </p>
 
-        <small>
-            ساخته شده برای جامعه نیکی
-        </small>
+        <button onclick="increaseScore()">
+            کلیک کن!
+        </button>
 
-    </footer>
+        <div id="score">
+            امتیاز: 0
+        </div>
+    </section>
 
+</main>
 
-    <script src="script.js"></script>
+<footer>
+    © 2026 NikiSite
+</footer>
+
+<script>
+    let score = 0;
+
+    function increaseScore() {
+        score++;
+
+        document.getElementById("score").textContent =
+            "امتیاز: " + score;
+    }
+</script>
 
 </body>
 </html>
