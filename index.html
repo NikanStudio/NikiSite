@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>نیکی سایت</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header class="header">
+
+    <div class="logo">
+        💜 نکی‌سایت
+    </div>
+
+    <button class="new-topic-btn" onclick="openTopicModal()">
+        + تاپیک جدید
+    </button>
+
+</header>
+
+
+<section class="hero">
+
+    <h1>به نیکی سایت خوش آمدید 💜</h1>
+
+    <p>
+        اینجا می‌تونی تاپیک بسازی، نظر بدی و با بقیه گفتگو کنی.
+    </p>
+
+</section>
+
+
+<!-- منوی بخش ها -->
+
+<nav class="main-menu">
+
+    <button onclick="showSection('home')">
+        🏠 خانه
+    </button>
+
+    <button onclick="showSection('about')">
+        ℹ️ درباره سایت
+    </button>
+
+    <button onclick="showSection('game')">
+        🎮 بازی
+    </button>
+
+</nav>
+
+
+<!-- ================= خانه ================= -->
+
+<section id="homeSection">
+
+    <div class="search-box">
+
+        <input
+            type="text"
+            id="searchInput"
+            placeholder="🔎 جستجوی تاپیک..."
+            oninput="searchTopics()"
+        >
+
+    </div>
+
+
+    <nav class="categories">
+
+        <button class="category active"
+                onclick="filterCategory('همه', this)">
+            همه
+        </button>
+
+        <button class="category"
+                onclick="filterCategory('عمومی', this)">
+            عمومی
+        </button>
+
+        <button class="category"
+                onclick="filterCategory('گیم', this)">
+            🎮 گیم
+        </button>
+
+        <button class="category"
+                onclick="filterCategory('سرگرمی', this)">
+            😂 سرگرمی
+        </button>
+
+        <button class="category"
+                onclick="filterCategory('تکنولوژی', this)">
+            💻 تکنولوژی
+        </button>
+
+    </nav>
+
+
+    <main id="topicsContainer" class="topics-container"></main>
+
+
+    <div id="emptyMessage" class="empty-message">
+
+        <div>📭</div>
+
+        <h3>هنوز تاپیکی وجود ندارد</h3>
+
+        <p>اولین تاپیک را تو بساز!</p>
+
+    </div>
+
+</section>
+
+
+
+<!-- ================= درباره سایت ================= -->
+
+<section id="aboutSection" class="page-section">
+
+    <div class="about-card">
+
+        <div class="about-icon">
+            💜
+        </div>
+
+        <h1>درباره نیکان سایت</h1>
+
+        <p>
+            به نیکان سایت خوش آمدید!
+        </p>
+
+        <p>
+            نیکان سایت یک فضای دوستانه برای گفتگو،
+            ساخت تاپیک و اشتراک‌گذاری نظرهاست.
+        </p>
+
+        <p>
+            اینجا می‌تونی درباره موضوعات مختلف صحبت کنی،
+            تاپیک بسازی و با کاربران دیگر گفتگو داشته باشی.
+        </p>
+
+        <div class="about-box">
+
+            <b>✨ امکانات سایت</b>
+
+            <p>📝 ساخت تاپیک</p>
+            <p>💬 ارسال پاسخ</p>
+            <p>❤️ لایک کردن</p>
+            <p>🔎 جستجوی تاپیک</p>
+            <p>🎮 بخش بازی</p>
+
+        </div>
+
+        <p class="about-footer">
+            ساخته شده با 💜 برای کاربران نیکان سایت
+        </p>
+
+    </div>
+
+</section>
+
+
+
+<!-- ================= بازی ================= -->
+
+<section id="gameSection" class="page-section">
+
+    <div class="game-card">
+
+        <h1>🎮 بازی کلیک سریع</h1>
+
+        <p>
+            در ۱۰ ثانیه هرچقدر می‌تونی روی دکمه کلیک کن!
+        </p>
+
+        <div class="game-score">
+
+            امتیاز:
+            <span id="score">
+                0
+            </span>
+
+        </div>
+
+        <div class="game-time">
+
+            زمان:
+            <span id="time">
+                10
+            </span>
+
+            ثانیه
+
+        </div>
+
+        <button
+            id="startGame"
+            class="game-start"
+            onclick="startGame()"
+        >
+            شروع بازی 🎮
+        </button>
+
+        <button
+            id="clickGame"
+            class="click-game"
+            onclick="clickGame()"
+            disabled
+        >
+            کلیک کن! 👆
+        </button>
+
+        <div id="gameResult"></div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ================= ساخت تاپیک ================= -->
+
+<div id="topicModal" class="modal">
+
+    <div class="modal-content">
+
+        <button
+            class="close"
+            onclick="closeTopicModal()">
+            ×
+        </button>
+
+        <h2>
+            ساخت تاپیک جدید ✨
+        </h2>
+
+        <input
+            id="topicTitle"
+            type="text"
+            placeholder="عنوان تاپیک"
+            maxlength="100"
+        >
+
+        <select id="topicCategory">
+
+            <option value="عمومی">
+                عمومی
+            </option>
+
+            <option value="گیم">
+                🎮 گیم
+            </option>
+
+            <option value="سرگرمی">
+                😂 سرگرمی
+            </option>
+
+            <option value="تکنولوژی">
+                💻 تکنولوژی
+            </option>
+
+        </select>
+
+        <textarea
+            id="topicText"
+            placeholder="متن تاپیک را بنویس..."
+            maxlength="1000"
+        ></textarea>
+
+        <input
+            id="topicAuthor"
+            type="text"
+            placeholder="نام شما"
+            maxlength="30"
+        >
+
+        <button
+            class="create-btn"
+            onclick="createTopic()">
+            ساخت تاپیک
+        </button>
+
+    </div>
+
+</div>
+
+
+
+<!-- ================= نمایش تاپیک ================= -->
+
+<div id="viewModal" class="modal">
+
+    <div class="modal-content topic-view">
+
+        <button
+            class="close"
+            onclick="closeViewModal()">
+            ×
+        </button>
+
+        <div id="topicDetails"></div>
+
+    </div>
+
+</div>
+
+
+
+<footer>
+
+    <p>
+        💜 نیکی سایت
+    </p>
+
+    <small>
+        یک جای دوستانه برای گفتگو و سرگرمی
+    </small>
+
+</footer>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>
